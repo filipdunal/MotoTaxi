@@ -41,6 +41,11 @@ public class CarMovementScript : MonoBehaviour
     public Transform localMesh;
     Rigidbody rb;
 
+    [Header("Lights")]
+    public Renderer frontLightRenderer;
+    public Transform frontLight;
+    public Renderer tailLightRenderer;
+
     Vector3 meshPositionOffset;
     Quaternion meshRotationOffset;
 
@@ -54,6 +59,10 @@ public class CarMovementScript : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
+    }
+    
+    void SwitchBrakeLight(bool condition)
+    {
     }
     public void InputTurning(float axis)
     {
