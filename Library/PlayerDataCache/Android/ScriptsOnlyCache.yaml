@@ -829,7 +829,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: b30eb182b2c31f3d9743a235e6332fb0
+      Hash: e2423f8fa53aa622d0d9ca00b04e0bbd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HudController
@@ -1399,7 +1399,7 @@ ScriptsOnlyBuild:
     className: SceneRenderPipeline
   - hash:
       serializedVersion: 2
-      Hash: 737b9fbcc1e10de8fe56d26907110898
+      Hash: d5ce2abf4d32ae4b8ee57f0182a781c5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CarMovementScript
