@@ -64,6 +64,7 @@ public class CarMovementScript : MonoBehaviour
         public int number;
         public float minSpeed;
         public float maxSpeed;
+        public float motorPower;
     }
     float desirePitch;
     
