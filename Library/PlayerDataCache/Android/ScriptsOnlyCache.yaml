@@ -48,6 +48,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
+    - UnityEditor.Rendering.Universal.UniversalRenderPipelineAssetEditor
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.Bloom
     - UnityEngine.Rendering.Universal.ColorAdjustments
@@ -120,6 +121,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -131,119 +136,119 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11388}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11536}
     - Class: 114
-      Script: {instanceID: 11658}
+      Script: {instanceID: 11664}
     - Class: 114
-      Script: {instanceID: 11684}
+      Script: {instanceID: 11690}
     - Class: 114
-      Script: {instanceID: 11730}
-    - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11736}
     - Class: 114
       Script: {instanceID: 11806}
     - Class: 114
-      Script: {instanceID: 11894}
+      Script: {instanceID: 11812}
     - Class: 114
-      Script: {instanceID: 11942}
+      Script: {instanceID: 11900}
     - Class: 114
-      Script: {instanceID: 12120}
+      Script: {instanceID: 11948}
     - Class: 114
-      Script: {instanceID: 12156}
+      Script: {instanceID: 12126}
     - Class: 114
-      Script: {instanceID: 12258}
+      Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12264}
     - Class: 114
-      Script: {instanceID: 12572}
+      Script: {instanceID: 12526}
     - Class: 114
-      Script: {instanceID: 12656}
+      Script: {instanceID: 12578}
     - Class: 114
-      Script: {instanceID: 12806}
+      Script: {instanceID: 12662}
     - Class: 114
-      Script: {instanceID: 12940}
+      Script: {instanceID: 12812}
     - Class: 114
-      Script: {instanceID: 13150}
+      Script: {instanceID: 12946}
     - Class: 114
-      Script: {instanceID: 13204}
+      Script: {instanceID: 13156}
     - Class: 114
-      Script: {instanceID: 13254}
+      Script: {instanceID: 13210}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13332}
+      Script: {instanceID: 13330}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 13338}
     - Class: 114
-      Script: {instanceID: 13458}
+      Script: {instanceID: 13414}
     - Class: 114
-      Script: {instanceID: 13608}
+      Script: {instanceID: 13464}
     - Class: 114
-      Script: {instanceID: 13774}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 13806}
+      Script: {instanceID: 13780}
     - Class: 114
-      Script: {instanceID: 13834}
+      Script: {instanceID: 13812}
     - Class: 114
-      Script: {instanceID: 13964}
+      Script: {instanceID: 13840}
     - Class: 114
-      Script: {instanceID: 13976}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14002}
+      Script: {instanceID: 13982}
     - Class: 114
-      Script: {instanceID: 14030}
+      Script: {instanceID: 14008}
     - Class: 114
-      Script: {instanceID: 14188}
+      Script: {instanceID: 14036}
     - Class: 114
-      Script: {instanceID: 14260}
+      Script: {instanceID: 14194}
     - Class: 114
-      Script: {instanceID: 14284}
+      Script: {instanceID: 14266}
     - Class: 114
-      Script: {instanceID: 14402}
+      Script: {instanceID: 14290}
     - Class: 114
-      Script: {instanceID: 14444}
+      Script: {instanceID: 14408}
     - Class: 114
-      Script: {instanceID: 14478}
+      Script: {instanceID: 14450}
     - Class: 114
-      Script: {instanceID: 14486}
+      Script: {instanceID: 14484}
     - Class: 114
-      Script: {instanceID: 14774}
+      Script: {instanceID: 14492}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14780}
     - Class: 114
-      Script: {instanceID: 14886}
+      Script: {instanceID: 14876}
     - Class: 114
-      Script: {instanceID: 14950}
+      Script: {instanceID: 14892}
     - Class: 114
-      Script: {instanceID: 15232}
+      Script: {instanceID: 14956}
     - Class: 114
-      Script: {instanceID: 15436}
+      Script: {instanceID: 15238}
     - Class: 114
-      Script: {instanceID: 15492}
+      Script: {instanceID: 15442}
     - Class: 114
-      Script: {instanceID: 15560}
+      Script: {instanceID: 15498}
     - Class: 114
-      Script: {instanceID: 15674}
+      Script: {instanceID: 15566}
     - Class: 114
-      Script: {instanceID: 15710}
+      Script: {instanceID: 15680}
     - Class: 114
-      Script: {instanceID: 15734}
+      Script: {instanceID: 15716}
     - Class: 114
-      Script: {instanceID: 15736}
+      Script: {instanceID: 15740}
     - Class: 114
-      Script: {instanceID: 15774}
+      Script: {instanceID: 15742}
     - Class: 114
-      Script: {instanceID: 15804}
+      Script: {instanceID: 15780}
     - Class: 114
-      Script: {instanceID: 15806}
+      Script: {instanceID: 15810}
     - Class: 114
-      Script: {instanceID: 15938}
+      Script: {instanceID: 15812}
     - Class: 114
-      Script: {instanceID: 15946}
+      Script: {instanceID: 15944}
+    - Class: 114
+      Script: {instanceID: 15952}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1399,7 +1404,7 @@ ScriptsOnlyBuild:
     className: SceneRenderPipeline
   - hash:
       serializedVersion: 2
-      Hash: d5ce2abf4d32ae4b8ee57f0182a781c5
+      Hash: a0e9eadaa4ba1d6b54f71d370b3a8834
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CarMovementScript

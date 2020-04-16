@@ -11,7 +11,12 @@ public class CarMovementScript : MonoBehaviour
     public AnimationCurve torqueCurve;
     float acceleratingAxis = 0;
     float desireAcceleratingAxis = 0;
-    public float accelerateButtonGravity = 1f;
+    [SerializeField] List<Gear> gears;
+
+    [Header("Sound")]
+    public AnimationCurve engineSoundPitch;
+    public AudioSource engineSoundSource;
+    public float engineSoundPitchLerp;
 
     [Header("Steering physics")]
     public float steeringForce;
@@ -23,6 +28,7 @@ public class CarMovementScript : MonoBehaviour
     float desireTurningAxis = 0;
 
     [Header("Input")]
+    public float accelerateButtonGravity = 1f;
     public float turningButtonsGravity = 1f;
     public float turningButtonsBackwardGravity = 1f;
     public float gravityDeadzone = 0.1f;
@@ -51,6 +57,16 @@ public class CarMovementScript : MonoBehaviour
 
     Vector3 tempPosition;
     Quaternion tempRotation;
+
+    [System.Serializable]
+    class Gear
+    {
+        public int number;
+        public float minSpeed;
+        public float maxSpeed;
+    }
+    float desirePitch;
+    
     
     private void Start()
     {
@@ -194,6 +210,19 @@ public class CarMovementScript : MonoBehaviour
 
         //Vector3 eul = transform.rotation.eulerAngles;
         //transform.eulerAngles= new Vector3(eul.x, eul.y, 0f);
+        #region SOUND
+        float speed = GetSpeed(0);
+        foreach(Gear g in gears)
+        {
+            if(g.maxSpeed>speed)
+            {
+                Debug.Log(g.number);
+                desirePitch = engineSoundPitch.Evaluate(((speed - g.minSpeed) / (g.maxSpeed - g.minSpeed)));
+                break;
+            }
+        }
+        engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, desirePitch, Time.deltaTime * engineSoundPitchLerp);
+        #endregion
     }
 
     public float GetSpeed(int decimalPoints, bool returnRelativeToMaxSpeed=false)
