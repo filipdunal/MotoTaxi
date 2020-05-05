@@ -12,6 +12,9 @@ public class CarMovementScript : MonoBehaviour
     float acceleratingAxis = 0;
     float desireAcceleratingAxis = 0;
     [SerializeField] List<Gear> gears;
+    [HideInInspector] public Gear actualGear;
+    float currentMotorForce;
+    public float changingGearDelay = 1f;
 
     [Header("Sound")]
     public AnimationCurve engineSoundPitch;
@@ -59,7 +62,7 @@ public class CarMovementScript : MonoBehaviour
     Quaternion tempRotation;
 
     [System.Serializable]
-    class Gear
+    public class Gear
     {
         public int number;
         public float minSpeed;
@@ -76,6 +79,8 @@ public class CarMovementScript : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
+
+        actualGear = gears[0];
     }
     
     public void SwitchLights(bool condition)
@@ -122,6 +127,25 @@ public class CarMovementScript : MonoBehaviour
         transform.position = new Vector3(3f, 3f, 3f);
         rb.velocity = Vector3.zero;
     }
+    
+    IEnumerator FindRightGear()
+    {
+        changingGear = true;
+        float speed = GetSpeed(0);
+        foreach(Gear g in gears)
+        {
+            if(speed<=g.maxSpeed && speed>g.minSpeed)
+            {
+                yield return new WaitForSeconds(changingGearDelay);
+                changingGear = false;
+                actualGear = g;
+                yield break;
+            }
+        }
+        changingGear = false;
+        actualGear = gears[0];
+    }
+    bool changingGear;
     private void Update()
     {
         #region KEYBOARD STEERING
@@ -160,14 +184,31 @@ public class CarMovementScript : MonoBehaviour
 
         #region MOTOR
         acceleratingAxis = Mathf.Lerp(acceleratingAxis, desireAcceleratingAxis, Time.deltaTime * accelerateButtonGravity);
+        /*
         float currentMotorForce = acceleratingAxis * motorForce*torqueCurve.Evaluate(GetSpeed(0,true));
         WheelColRear.motorTorque=currentMotorForce;
+        */
+        if(actualGear!=null)
+        {
+            currentMotorForce = acceleratingAxis * actualGear.motorPower;
+            WheelColRear.motorTorque = currentMotorForce;
+            if (GetSpeed(0) > actualGear.maxSpeed || GetSpeed(0) < actualGear.minSpeed)
+            {
+                if(!changingGear)
+                    StartCoroutine(FindRightGear());
+            }
+        }
+
+        Debug.Log(WheelColRear.rpm);
+        
+
+
         #endregion
 
         #region TURNING
         //turningAxis = Mathf.Lerp(turningAxis, desireTurningAxis, turningButtonsGravity * Time.deltaTime);
-        
-        if(desireTurningAxis>turningAxis)
+
+        if (desireTurningAxis>turningAxis)
         {
             turningAxis = turningAxis + turningButtonsGravity * Time.deltaTime;
         }
@@ -179,7 +220,7 @@ public class CarMovementScript : MonoBehaviour
         {
             turningAxis = desireTurningAxis;
         }
-        float currentSteeringForce = turningAxis * steeringForce;//* turningCurve.Evaluate(GetSpeed(0, true));
+        float currentSteeringForce = turningAxis * steeringForce* turningCurve.Evaluate(GetSpeed(0, true));
         WheelColFront.steerAngle = currentSteeringForce;
         #endregion
         
@@ -213,16 +254,12 @@ public class CarMovementScript : MonoBehaviour
         //transform.eulerAngles= new Vector3(eul.x, eul.y, 0f);
         #region SOUND
         float speed = GetSpeed(0);
-        foreach(Gear g in gears)
+        if(Time.timeScale!=0f)
         {
-            if(g.maxSpeed>speed)
-            {
-                Debug.Log(g.number);
-                desirePitch = engineSoundPitch.Evaluate(((speed - g.minSpeed) / (g.maxSpeed - g.minSpeed)));
-                break;
-            }
+            desirePitch = engineSoundPitch.Evaluate(((speed - actualGear.minSpeed) / (actualGear.maxSpeed - actualGear.minSpeed)));
+            engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, desirePitch, Time.deltaTime * engineSoundPitchLerp);
         }
-        engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, desirePitch, Time.deltaTime * engineSoundPitchLerp);
+        
         #endregion
     }
 
