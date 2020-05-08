@@ -5,23 +5,43 @@ using UnityEngine;
 public class CarMovementScript : MonoBehaviour
 {
     [Header("Engine and braking physics")]
+
     public float motorForce;
     public float brakeForce;
     [Tooltip("In kilometeres per hour")] public float maxSpeed;
-    public AnimationCurve torqueCurve;
+    //public AnimationCurve torqueCurve;
     float acceleratingAxis = 0;
     float desireAcceleratingAxis = 0;
     [SerializeField] List<Gear> gears;
     [HideInInspector] public Gear actualGear;
-    float currentMotorForce;
-    public float changingGearDelay = 1f;
+    [System.Serializable]
+    public class Gear
+    {
+        public int number;
+        public float gearRatio;
+    }
+    //float currentMotorForce;
+    public float maxRPM;
+    public float minRPM;
+    public float tachometerMaxRPM;
+    [HideInInspector] public float engineRPM;
+    [HideInInspector] public float engineRPMsmooth;
+    public float rpmLerp;
+    public float neutralGearRPM;
+
+
 
     [Header("Sound")]
+
     public AnimationCurve engineSoundPitch;
     public AudioSource engineSoundSource;
     public float engineSoundPitchLerp;
+    float desirePitch;
+
+
 
     [Header("Steering physics")]
+
     public float steeringForce;
     public float leanMeshForce;
     public float leanMeshSmooth;
@@ -30,48 +50,53 @@ public class CarMovementScript : MonoBehaviour
     float turningAxis = 0;
     float desireTurningAxis = 0;
 
+
+
     [Header("Input")]
+
     public float accelerateButtonGravity = 1f;
     public float turningButtonsGravity = 1f;
     public float turningButtonsBackwardGravity = 1f;
     public float gravityDeadzone = 0.1f;
     public bool keyboardSteering;
 
+
+
     [Header("Physic part references")]
+
     public WheelCollider WheelColFront;
     public WheelCollider WheelColRear;
     public Transform handlebarTurnAxis;
 
+
+
     [Header("Mesh part references")]
+
     public Transform frontWheelMesh;
     public Transform rearWheelMesh;
     public Transform handlebarMesh;
     public Transform wholeMesh;
     public Transform localMesh;
+    Vector3 meshPositionOffset;
+    Quaternion meshRotationOffset;
+    Vector3 tempPosition;
+    Quaternion tempRotation;
     Rigidbody rb;
 
+
+
     [Header("Lights")]
+
     public GameObject frontLight;
     public GameObject tailLight;
     public GameObject brakeLight;
 
-    Vector3 meshPositionOffset;
-    Quaternion meshRotationOffset;
-
-    Vector3 tempPosition;
-    Quaternion tempRotation;
-
-    [System.Serializable]
-    public class Gear
+    private void Awake()
     {
-        public int number;
-        public float minSpeed;
-        public float maxSpeed;
-        public float motorPower;
+        //wholeMesh.parent = null; // Detach of mesh
+        //GetComponent<Rigidbody>().ResetCenterOfMass();
+        //GetComponent<Rigidbody>().ResetInertiaTensor();
     }
-    float desirePitch;
-    
-    
     private void Start()
     {
         meshPositionOffset = transform.position - wholeMesh.position;
@@ -79,7 +104,6 @@ public class CarMovementScript : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
-
         actualGear = gears[0];
     }
     
@@ -108,12 +132,32 @@ public class CarMovementScript : MonoBehaviour
         desireAcceleratingAxis = axis;
     }
 
+    bool reversing;
     public void InputBrake(bool condition)
     {
-        if(condition)
+        Debug.Log("Brake hit");
+        if (GetSpeed(0) < 10f && Mathf.Abs(acceleratingAxis) < 0.1f)
         {
-            WheelColFront.brakeTorque = brakeForce;
-            WheelColRear.brakeTorque = brakeForce;
+            reversing = condition;
+        }
+        else
+        {
+            reversing = false;
+        }
+
+        if (condition)
+        {
+            if(reversing)
+            {
+                WheelColRear.motorTorque = -550f;
+                WheelColRear.brakeTorque = 0f;
+                WheelColFront.brakeTorque = 0f;
+            }
+            else
+            {
+                WheelColFront.brakeTorque = brakeForce;
+                WheelColRear.brakeTorque = brakeForce;
+            }
         }
         else
         {
@@ -127,27 +171,23 @@ public class CarMovementScript : MonoBehaviour
         transform.position = new Vector3(3f, 3f, 3f);
         rb.velocity = Vector3.zero;
     }
-    
-    IEnumerator FindRightGear()
+
+    void GearShift(int gearChange)
     {
-        changingGear = true;
-        float speed = GetSpeed(0);
+        int lookForGear = actualGear.number + gearChange;
         foreach(Gear g in gears)
         {
-            if(speed<=g.maxSpeed && speed>g.minSpeed)
+            if(g.number==lookForGear)
             {
-                yield return new WaitForSeconds(changingGearDelay);
-                changingGear = false;
                 actualGear = g;
-                yield break;
+                return;
             }
         }
-        changingGear = false;
-        actualGear = gears[0];
     }
-    bool changingGear;
+    
     private void Update()
     {
+        //Debug.Log(reversing);
         #region KEYBOARD STEERING
         if(keyboardSteering)
         {
@@ -184,23 +224,45 @@ public class CarMovementScript : MonoBehaviour
 
         #region MOTOR
         acceleratingAxis = Mathf.Lerp(acceleratingAxis, desireAcceleratingAxis, Time.deltaTime * accelerateButtonGravity);
-        /*
-        float currentMotorForce = acceleratingAxis * motorForce*torqueCurve.Evaluate(GetSpeed(0,true));
-        WheelColRear.motorTorque=currentMotorForce;
-        */
-        if(actualGear!=null)
-        {
-            currentMotorForce = acceleratingAxis * actualGear.motorPower;
+
+        float currentMotorForce = acceleratingAxis * motorForce*actualGear.gearRatio;//*torqueCurve.Evaluate(GetSpeed(0,true));
+        if(!reversing)
             WheelColRear.motorTorque = currentMotorForce;
-            if (GetSpeed(0) > actualGear.maxSpeed || GetSpeed(0) < actualGear.minSpeed)
+        if (actualGear.number == 0)
+        {
+            engineRPM = neutralGearRPM;
+            if (acceleratingAxis > 0f)
             {
-                if(!changingGear)
-                    StartCoroutine(FindRightGear());
+                GearShift(1);
             }
         }
+        else
+        {
+            engineRPM = WheelColRear.rpm * actualGear.gearRatio;
+        }
 
-        Debug.Log(WheelColRear.rpm);
-        
+        //Debug.Log(engineRPM);
+        if (engineRPM > maxRPM)
+        {
+            GearShift(1);
+        }
+        else if (engineRPM < minRPM)
+        {
+            if (actualGear.number == 1)
+            {
+                if (desireAcceleratingAxis == 0)
+                {
+                    GearShift(-1);
+                }
+            }
+            else
+            {
+                GearShift(-1);
+            }
+
+        }
+        engineRPMsmooth = Mathf.Lerp(engineRPMsmooth, engineRPM, rpmLerp * Time.deltaTime);
+
 
 
         #endregion
@@ -229,8 +291,8 @@ public class CarMovementScript : MonoBehaviour
         handlebarTurnAxis.localEulerAngles = new Vector3(0f, currentSteeringForce, 0f);
         handlebarMesh.localEulerAngles = new Vector3(0f, 0f, currentSteeringForce);
 
-        rearWheelMesh.Rotate(new Vector3(0f,-WheelColRear.rpm*60f/1000f,0f));
-        frontWheelMesh.Rotate(new Vector3(0f,-WheelColFront.rpm * 60f / 1000f, 0f));
+        rearWheelMesh.Rotate(new Vector3(0f,-WheelColRear.rpm*60f/1000f*Time.timeScale,0f));
+        frontWheelMesh.Rotate(new Vector3(0f,-WheelColFront.rpm * 60f / 1000f*Time.timeScale, 0f));
 
         frontWheelMesh.localEulerAngles = new Vector3(frontWheelMesh.localEulerAngles.x, (WheelColFront.steerAngle - frontWheelMesh.localEulerAngles.z)+90f, frontWheelMesh.localEulerAngles.z);
         #endregion
@@ -256,9 +318,11 @@ public class CarMovementScript : MonoBehaviour
         float speed = GetSpeed(0);
         if(Time.timeScale!=0f)
         {
-            desirePitch = engineSoundPitch.Evaluate(((speed - actualGear.minSpeed) / (actualGear.maxSpeed - actualGear.minSpeed)));
+            desirePitch = engineSoundPitch.Evaluate(engineRPMsmooth);
             engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, desirePitch, Time.deltaTime * engineSoundPitchLerp);
         }
+
+        //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0f);
         
         #endregion
     }

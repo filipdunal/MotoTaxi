@@ -48,7 +48,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
-    - UnityEditor.Rendering.Universal.UniversalRenderPipelineAssetEditor
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.Bloom
     - UnityEngine.Rendering.Universal.ColorAdjustments
@@ -834,7 +833,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: e2423f8fa53aa622d0d9ca00b04e0bbd
+      Hash: 80314448b1a5fbd41223fdaadaaa8c95
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HudController
@@ -1404,7 +1403,7 @@ ScriptsOnlyBuild:
     className: SceneRenderPipeline
   - hash:
       serializedVersion: 2
-      Hash: a0e9eadaa4ba1d6b54f71d370b3a8834
+      Hash: c8efdc439e075ab455f5489ca18cc43e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CarMovementScript
