@@ -103,8 +103,9 @@ public class CarMovementScript : MonoBehaviour
         meshRotationOffset = transform.rotation * Quaternion.Inverse(wholeMesh.rotation);
 
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0f, -0.5f, 0f);
+        rb.centerOfMass = new Vector3(0f, -0.2f, 0f);
         actualGear = gears[0];
+        //StartCoroutine(ResetRotationZ());
     }
     
     public void SwitchLights(bool condition)
@@ -135,7 +136,7 @@ public class CarMovementScript : MonoBehaviour
     bool reversing;
     public void InputBrake(bool condition)
     {
-        Debug.Log("Brake hit");
+        //Debug.Log("Brake hit");
         if (GetSpeed(0) < 10f && Mathf.Abs(acceleratingAxis) < 0.1f)
         {
             reversing = condition;
@@ -184,12 +185,12 @@ public class CarMovementScript : MonoBehaviour
             }
         }
     }
-    
+
     private void Update()
     {
         //Debug.Log(reversing);
         #region KEYBOARD STEERING
-        if(keyboardSteering)
+        if (keyboardSteering)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
@@ -225,8 +226,8 @@ public class CarMovementScript : MonoBehaviour
         #region MOTOR
         acceleratingAxis = Mathf.Lerp(acceleratingAxis, desireAcceleratingAxis, Time.deltaTime * accelerateButtonGravity);
 
-        float currentMotorForce = acceleratingAxis * motorForce*actualGear.gearRatio;//*torqueCurve.Evaluate(GetSpeed(0,true));
-        if(!reversing)
+        float currentMotorForce = acceleratingAxis * motorForce * actualGear.gearRatio;//*torqueCurve.Evaluate(GetSpeed(0,true));
+        if (!reversing)
             WheelColRear.motorTorque = currentMotorForce;
         if (actualGear.number == 0)
         {
@@ -270,31 +271,31 @@ public class CarMovementScript : MonoBehaviour
         #region TURNING
         //turningAxis = Mathf.Lerp(turningAxis, desireTurningAxis, turningButtonsGravity * Time.deltaTime);
 
-        if (desireTurningAxis>turningAxis)
+        if (desireTurningAxis > turningAxis)
         {
             turningAxis = turningAxis + turningButtonsGravity * Time.deltaTime;
         }
-        else if(desireTurningAxis<turningAxis)
+        else if (desireTurningAxis < turningAxis)
         {
             turningAxis = turningAxis - turningButtonsGravity * Time.deltaTime;
         }
-        if(Mathf.Abs(turningAxis-desireTurningAxis)<gravityDeadzone)
+        if (Mathf.Abs(turningAxis - desireTurningAxis) < gravityDeadzone)
         {
             turningAxis = desireTurningAxis;
         }
-        float currentSteeringForce = turningAxis * steeringForce* turningCurve.Evaluate(GetSpeed(0, true));
+        float currentSteeringForce = turningAxis * steeringForce * turningCurve.Evaluate(GetSpeed(0, true));
         WheelColFront.steerAngle = currentSteeringForce;
         #endregion
-        
+
         //MESH THINGS
         #region WHEELS AND HANDLEBAR MESHES ROTATION
         handlebarTurnAxis.localEulerAngles = new Vector3(0f, currentSteeringForce, 0f);
         handlebarMesh.localEulerAngles = new Vector3(0f, 0f, currentSteeringForce);
 
-        rearWheelMesh.Rotate(new Vector3(0f,-WheelColRear.rpm*60f/1000f*Time.timeScale,0f));
-        frontWheelMesh.Rotate(new Vector3(0f,-WheelColFront.rpm * 60f / 1000f*Time.timeScale, 0f));
+        rearWheelMesh.Rotate(new Vector3(0f, -WheelColRear.rpm * 60f / 1000f * Time.timeScale, 0f));
+        frontWheelMesh.Rotate(new Vector3(0f, -WheelColFront.rpm * 60f / 1000f * Time.timeScale, 0f));
 
-        frontWheelMesh.localEulerAngles = new Vector3(frontWheelMesh.localEulerAngles.x, (WheelColFront.steerAngle - frontWheelMesh.localEulerAngles.z)+90f, frontWheelMesh.localEulerAngles.z);
+        frontWheelMesh.localEulerAngles = new Vector3(frontWheelMesh.localEulerAngles.x, (WheelColFront.steerAngle - frontWheelMesh.localEulerAngles.z) + 90f, frontWheelMesh.localEulerAngles.z);
         #endregion
 
         #region WHOLE MESH POSITION
@@ -309,22 +310,37 @@ public class CarMovementScript : MonoBehaviour
         #endregion
 
         #region LOCAL MESH LEAN
-        localMesh.localRotation = Quaternion.Lerp(localMesh.localRotation, Quaternion.Euler(0f, 0f, -leanMeshForce * turningAxis*leanCurve.Evaluate(GetSpeed(0,true))), Time.deltaTime*leanMeshSmooth);
+        localMesh.localRotation = Quaternion.Lerp(localMesh.localRotation, Quaternion.Euler(0f, 0f, -leanMeshForce * turningAxis * leanCurve.Evaluate(GetSpeed(0, true))), Time.deltaTime * leanMeshSmooth);
         #endregion
 
         //Vector3 eul = transform.rotation.eulerAngles;
         //transform.eulerAngles= new Vector3(eul.x, eul.y, 0f);
         #region SOUND
         float speed = GetSpeed(0);
-        if(Time.timeScale!=0f)
+        if (Time.timeScale != 0f)
         {
             desirePitch = engineSoundPitch.Evaluate(engineRPMsmooth);
             engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, desirePitch, Time.deltaTime * engineSoundPitchLerp);
         }
 
         //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0f);
-        
+
+
         #endregion
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Rotate(0f, 0f, -transform.localEulerAngles.z);
+    }
+    IEnumerator ResetRotationZ()
+    {
+        while(true)
+        {
+            transform.Rotate(0f, 0f, -transform.localEulerAngles.z);
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+        
     }
 
     public float GetSpeed(int decimalPoints, bool returnRelativeToMaxSpeed=false)
