@@ -228,7 +228,9 @@ public class CarMovementScript : MonoBehaviour
 
         float currentMotorForce = acceleratingAxis * motorForce * actualGear.gearRatio;//*torqueCurve.Evaluate(GetSpeed(0,true));
         if (!reversing)
+        {
             WheelColRear.motorTorque = currentMotorForce;
+        }
         if (actualGear.number == 0)
         {
             engineRPM = neutralGearRPM;
@@ -273,7 +275,15 @@ public class CarMovementScript : MonoBehaviour
 
         if (desireTurningAxis > turningAxis)
         {
-            turningAxis = turningAxis + turningButtonsGravity * Time.deltaTime;
+            if (Mathf.Abs(desireTurningAxis) < gravityDeadzone)
+            {
+                turningAxis = turningAxis + turningButtonsBackwardGravity * Time.deltaTime;
+            }
+            else
+            {
+                turningAxis = turningAxis + turningButtonsGravity * Time.deltaTime;
+            }
+            
         }
         else if (desireTurningAxis < turningAxis)
         {
@@ -325,8 +335,10 @@ public class CarMovementScript : MonoBehaviour
 
         //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0f);
 
-
+        //Debug.Log(WheelColFront.GetGroundHit(out WheelHit hit));
         #endregion
+
+        Debug.Log(WheelColRear.brakeTorque);
     }
 
     private void FixedUpdate()
