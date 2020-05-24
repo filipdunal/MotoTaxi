@@ -14,6 +14,8 @@ public class CarMovementScript : MonoBehaviour
     float desireAcceleratingAxis = 0;
     [SerializeField] List<Gear> gears;
     [HideInInspector] public Gear actualGear;
+    bool changingGear;
+    public float changeGearTime=0f;
     [System.Serializable]
     public class Gear
     {
@@ -170,25 +172,39 @@ public class CarMovementScript : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = new Vector3(3f, 3f, 3f);
+        transform.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
     }
 
-    void GearShift(int gearChange)
+    IEnumerator GearShiftCoroutine(int gearChange, bool forceNow)
     {
+        if(!forceNow)
+        {
+            changingGear = true;
+            yield return new WaitForSeconds(changeGearTime);
+            changingGear = false;
+        }
         int lookForGear = actualGear.number + gearChange;
         foreach(Gear g in gears)
         {
             if(g.number==lookForGear)
             {
                 actualGear = g;
-                return;
+                yield break;
             }
+        }
+    }
+
+    void GearShift(int gearChange, bool forceNow=false)
+    {
+        if(!changingGear)
+        {
+            StartCoroutine(GearShiftCoroutine(gearChange,forceNow));
         }
     }
 
     private void Update()
     {
-        //Debug.Log(reversing);
         #region KEYBOARD STEERING
         if (keyboardSteering)
         {
@@ -224,6 +240,10 @@ public class CarMovementScript : MonoBehaviour
         #endregion
 
         #region MOTOR
+        if(changingGear)
+        {
+            desireAcceleratingAxis = 0f;
+        }
         acceleratingAxis = Mathf.Lerp(acceleratingAxis, desireAcceleratingAxis, Time.deltaTime * accelerateButtonGravity);
 
         float currentMotorForce = acceleratingAxis * motorForce * actualGear.gearRatio;//*torqueCurve.Evaluate(GetSpeed(0,true));
@@ -234,9 +254,9 @@ public class CarMovementScript : MonoBehaviour
         if (actualGear.number == 0)
         {
             engineRPM = neutralGearRPM;
-            if (acceleratingAxis > 0f)
+            if (desireAcceleratingAxis > 0f)
             {
-                GearShift(1);
+                GearShift(1,true);
             }
         }
         else
@@ -253,7 +273,7 @@ public class CarMovementScript : MonoBehaviour
         {
             if (actualGear.number == 1)
             {
-                if (desireAcceleratingAxis == 0)
+                if (desireAcceleratingAxis == 0f)
                 {
                     GearShift(-1);
                 }
@@ -322,9 +342,7 @@ public class CarMovementScript : MonoBehaviour
         #region LOCAL MESH LEAN
         localMesh.localRotation = Quaternion.Lerp(localMesh.localRotation, Quaternion.Euler(0f, 0f, -leanMeshForce * turningAxis * leanCurve.Evaluate(GetSpeed(0, true))), Time.deltaTime * leanMeshSmooth);
         #endregion
-
-        //Vector3 eul = transform.rotation.eulerAngles;
-        //transform.eulerAngles= new Vector3(eul.x, eul.y, 0f);
+        
         #region SOUND
         float speed = GetSpeed(0);
         if (Time.timeScale != 0f)
@@ -332,13 +350,7 @@ public class CarMovementScript : MonoBehaviour
             desirePitch = engineSoundPitch.Evaluate(engineRPMsmooth);
             engineSoundSource.pitch = Mathf.Lerp(engineSoundSource.pitch, desirePitch, Time.deltaTime * engineSoundPitchLerp);
         }
-
-        //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0f);
-
-        //Debug.Log(WheelColFront.GetGroundHit(out WheelHit hit));
         #endregion
-
-        Debug.Log(WheelColRear.brakeTorque);
     }
 
     private void FixedUpdate()

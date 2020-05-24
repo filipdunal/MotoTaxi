@@ -32,6 +32,10 @@ public class HudController : MonoBehaviour
     {
         speedValue.text = cms.GetSpeed(0).ToString();
         gearValue.text = cms.actualGear.number.ToString();
+        if(gearValue.text=="0")
+        {
+            gearValue.text = "N";
+        }
         if (UniversalRenderPipeline.asset.supportsHDR)
         {
             hdrStatus.color = Color.green;
