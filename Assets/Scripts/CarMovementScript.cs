@@ -130,15 +130,17 @@ public class CarMovementScript : MonoBehaviour
     {
         desireTurningAxis = axis;
     }
-    public void InputAccelerating(float axis)
+
+    bool accelerating;
+    public void InputAccelerating(bool condition)
     {
-        desireAcceleratingAxis = axis;
+        accelerating = condition;
+        
     }
 
     bool reversing;
     public void InputBrake(bool condition)
     {
-        //Debug.Log("Brake hit");
         if (GetSpeed(0) < 10f && Mathf.Abs(acceleratingAxis) < 0.1f)
         {
             reversing = condition;
@@ -210,11 +212,11 @@ public class CarMovementScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                InputAccelerating(1);
+                InputAccelerating(true);
             }
             else
             {
-                InputAccelerating(0);
+                InputAccelerating(false);
             }
             if (Input.GetKey(KeyCode.Space))
             {
@@ -238,9 +240,9 @@ public class CarMovementScript : MonoBehaviour
             }
         }
         #endregion
-
         #region MOTOR
-        if(changingGear)
+        desireAcceleratingAxis = accelerating ? 1f : 0f;
+        if (changingGear)
         {
             desireAcceleratingAxis = 0f;
         }
@@ -278,7 +280,7 @@ public class CarMovementScript : MonoBehaviour
                     GearShift(-1);
                 }
             }
-            else
+            else if(actualGear.number != 0)
             {
                 GearShift(-1);
             }
