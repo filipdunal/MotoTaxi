@@ -49,7 +49,7 @@ public class CarMovementScript : MonoBehaviour
     public float leanMeshSmooth;
     public AnimationCurve turningCurve;
     public AnimationCurve leanCurve;
-    float turningAxis = 0;
+    public float turningAxis = 0;
     float desireTurningAxis = 0;
 
 
