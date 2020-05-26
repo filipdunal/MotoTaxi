@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\DisolveScript.cs" />
     <Compile Include="Assets\Scripts\HudController.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\ViewSkeleton.cs" />
     <Compile Include="Assets\TireEffects.cs" />
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>C:/Users/Filip/Documents/GitHub/ZabawaLubCosWiecej/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
