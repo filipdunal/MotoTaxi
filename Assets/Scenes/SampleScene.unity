@@ -1408,7 +1408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382144508}
-  m_LocalRotation: {x: 0.30497047, y: 0.000000066948296, z: -0.00000020906609, w: 0.9523618}
+  m_LocalRotation: {x: 0.30497047, y: 0.00000006694828, z: -0.00000020906609, w: 0.9523618}
   m_LocalPosition: {x: 0.674771, y: 6.042508, z: -194.683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2165,7 +2165,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51871671e5272ce4e8833e3c263f8fc7, type: 2}
+  - {fileID: 2100000, guid: 7f1e61b6d6808194cbd22c37c63d8699, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2727,7 +2727,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853981
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3320,7 +3320,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -5684,7 +5684,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -8401,7 +8401,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817222520}
-  m_LocalRotation: {x: 0.30497047, y: 0.000000066948296, z: -0.00000020906609, w: 0.9523618}
+  m_LocalRotation: {x: 0.30497047, y: 0.00000006694828, z: -0.00000020906609, w: 0.9523618}
   m_LocalPosition: {x: 0.674771, y: 6.042508, z: -194.683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11247,7 +11247,7 @@ MonoBehaviour:
   turningButtonsGravity: 2
   turningButtonsBackwardGravity: 2
   gravityDeadzone: 0.1
-  keyboardSteering: 0
+  keyboardSteering: 1
   WheelColFront: {fileID: 1024167443}
   WheelColRear: {fileID: 760212702}
   handlebarTurnAxis: {fileID: 346119829}

@@ -62,7 +62,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AmplifyOcclusion\Plugins\Editor\About.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
+    <Compile Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Editor\EditorGUILayoutExtended.cs" />
+    <Compile Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Editor\MinimalistClipboard.cs" />
+    <Compile Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Editor\MinimalistSkyEditor.cs" />
+    <Compile Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Editor\MinimalistStandardEditor.cs" />
+    <Compile Include="Assets\TrafficSimulation\Scripts\Editor\IntersectionEditor.cs" />
+    <Compile Include="Assets\TrafficSimulation\Scripts\Editor\TrafficEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/Filip/Documents/GitHub/ZabawaLubCosWiecej/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
