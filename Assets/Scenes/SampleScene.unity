@@ -15,16 +15,16 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.27055892, g: 0.5037616, b: 0.7169812, a: 1}
+  m_FogColor: {r: 1, g: 0.9079185, b: 0.7264151, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0.82621413, b: 1.5157166, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 1.1369168, g: 0.95390093, b: 0.84852815, a: 1}
+  m_AmbientEquatorColor: {r: 0.7578583, g: 0.5173151, b: 0.436126, a: 1}
+  m_AmbientGroundColor: {r: 0.0015679288, g: 0.0009932952, b: 0.0010753858, a: 1}
   m_AmbientIntensity: 1.48
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -150,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1744719979}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4738364
 AudioSource:
@@ -2813,8 +2813,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Color: {r: 1, g: 0.96695226, b: 0.95686275, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2823,7 +2823,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.741
     m_Bias: 1.28
     m_NormalBias: 0
     m_NearPlane: 0.1
@@ -3174,7 +3174,7 @@ PrefabInstance:
       objectReference: {fileID: 1938862188}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: rayNumber
@@ -3204,7 +3204,17 @@ PrefabInstance:
     - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515347895, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -3259,7 +3269,7 @@ PrefabInstance:
     - target: {fileID: 3312457259515600645, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515600645, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -3285,6 +3295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259518432589, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259521545865, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -4122,7 +4137,7 @@ PrefabInstance:
       objectReference: {fileID: 1938862188}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: rayNumber
@@ -4152,7 +4167,17 @@ PrefabInstance:
     - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515347895, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -4233,6 +4258,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259518432589, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259521545865, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -5857,8 +5887,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382144508}
-  m_LocalRotation: {x: -0.054721896, y: -0.9430425, z: 0.19619581, w: -0.26302773}
-  m_LocalPosition: {x: -37.82893, y: 4.617508, z: -40.975643}
+  m_LocalRotation: {x: 0.20368418, y: -0.00072361314, z: 0.0001497488, w: 0.9790364}
+  m_LocalPosition: {x: -34.439575, y: 4.469, z: -53.092995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 853033671}
@@ -6112,7 +6142,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -6152,7 +6182,17 @@ PrefabInstance:
     - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -6163,6 +6203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -6187,7 +6232,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -6467,7 +6512,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -6504,6 +6549,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524457, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: FullTorqueOverAllWheels
@@ -6512,7 +6562,17 @@ PrefabInstance:
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -6552,7 +6612,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -7941,7 +8001,7 @@ PrefabInstance:
       objectReference: {fileID: 1938862188}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: rayNumber
@@ -7971,7 +8031,17 @@ PrefabInstance:
     - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515347895, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -8026,7 +8096,7 @@ PrefabInstance:
     - target: {fileID: 3312457259515600645, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515600645, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -8052,6 +8122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259518432589, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259521545865, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -15691,99 +15766,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560383641}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &577368088
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 577368089}
-  - component: {fileID: 577368092}
-  - component: {fileID: 577368091}
-  - component: {fileID: 577368090}
-  m_Layer: 0
-  m_Name: Body (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &577368089
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577368088}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.408, z: 1.362}
-  m_LocalScale: {x: 0.14, y: 0.89, z: 0.27}
-  m_Children: []
-  m_Father: {fileID: 1744719979}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &577368090
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577368088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &577368091
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577368088}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &577368092
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577368088}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &581815642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18525,7 +18507,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -18565,7 +18547,17 @@ PrefabInstance:
     - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -18576,6 +18568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -18600,7 +18597,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -19825,8 +19822,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817222520}
-  m_LocalRotation: {x: -0.054721896, y: -0.9430425, z: 0.19619581, w: -0.26302773}
-  m_LocalPosition: {x: -37.82893, y: 4.617508, z: -40.975643}
+  m_LocalRotation: {x: 0.20368418, y: -0.00072361314, z: 0.0001497488, w: 0.9790364}
+  m_LocalPosition: {x: -34.439575, y: 4.469, z: -53.092995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22373,7 +22370,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -22410,6 +22407,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524457, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: FullTorqueOverAllWheels
@@ -22418,7 +22420,17 @@ PrefabInstance:
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -22458,7 +22470,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -22939,7 +22951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1002438826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24250,7 +24262,7 @@ Transform:
   - {fileID: 760212701}
   - {fileID: 346119829}
   m_Father: {fileID: 1744719979}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1088124420
 PrefabInstance:
@@ -25601,10 +25613,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181907412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.74, y: 0.92, z: -46.51}
+  m_LocalPosition: {x: -34.74, y: 3.24, z: -46.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1289669176}
   - {fileID: 1744719979}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -26854,12 +26865,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289669175}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.290771, y: 0.857508, z: -0.055999994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1681210958}
-  m_Father: {fileID: 1181907413}
-  m_RootOrder: 0
+  m_Father: {fileID: 1744719979}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1291159613
 GameObject:
@@ -27474,7 +27485,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -27514,7 +27525,17 @@ PrefabInstance:
     - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -27525,6 +27546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -27549,7 +27575,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -28456,7 +28482,7 @@ Transform:
   m_LocalScale: {x: 0.13561, y: 0.13561, z: 0.13561}
   m_Children: []
   m_Father: {fileID: 1744719979}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1376188157
 MeshRenderer:
@@ -28633,7 +28659,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -28670,6 +28696,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524457, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: FullTorqueOverAllWheels
@@ -28678,7 +28709,17 @@ PrefabInstance:
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -28718,7 +28759,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -28878,7 +28919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1744719979}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1398371521
 AudioSource:
@@ -29278,17 +29319,17 @@ Transform:
   - {fileID: 6166591}
   - {fileID: 624463469}
   - {fileID: 1766394212}
-  - {fileID: 498139331}
+  - {fileID: 189116208}
+  - {fileID: 453383566}
   - {fileID: 630856245}
   - {fileID: 396678991}
   - {fileID: 756154438}
-  - {fileID: 965937427}
-  - {fileID: 189116208}
-  - {fileID: 453383566}
-  - {fileID: 1386311900}
-  - {fileID: 414504288}
   - {fileID: 1572436222}
   - {fileID: 1327014158}
+  - {fileID: 965937427}
+  - {fileID: 498139331}
+  - {fileID: 1386311900}
+  - {fileID: 414504288}
   - {fileID: 439876836}
   - {fileID: 143005885}
   - {fileID: 875122906}
@@ -31243,7 +31284,7 @@ PrefabInstance:
       objectReference: {fileID: 1938862188}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: rayNumber
@@ -31273,7 +31314,17 @@ PrefabInstance:
     - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515347895, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -31354,6 +31405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259518432589, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259521545865, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -31793,7 +31849,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -31833,7 +31889,17 @@ PrefabInstance:
     - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -31844,6 +31910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -31868,7 +31939,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -34694,6 +34765,7 @@ GameObject:
   - component: {fileID: 1744719980}
   - component: {fileID: 1744719975}
   - component: {fileID: 1744719976}
+  - component: {fileID: 1744719977}
   m_Layer: 0
   m_Name: MotoPhysic
   m_TagString: Untagged
@@ -34733,6 +34805,19 @@ MonoBehaviour:
   speedToLowerHead: 60
   headLowPosition: 1
   speedOfChangingHeadHeight: 10
+--- !u!114 &1744719977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744719974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0283e4572fef13042b42f67e840929a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeedImpact: 20
 --- !u!33 &1744719978
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34749,18 +34834,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744719974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.290771, y: 0.857508, z: -0.053000003}
+  m_LocalPosition: {x: 0.290771, y: -1.611, z: -0.053000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 72009312}
   - {fileID: 531367781}
-  - {fileID: 577368089}
   - {fileID: 1086940303}
   - {fileID: 4738363}
   - {fileID: 1398371520}
   - {fileID: 1376188156}
+  - {fileID: 1289669176}
   m_Father: {fileID: 1181907413}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1744719980
 MonoBehaviour:
@@ -34922,6 +35007,9 @@ MonoBehaviour:
   frontLight: {fileID: 1865600268}
   tailLight: {fileID: 1335638657}
   brakeLight: {fileID: 436451406}
+  centerOfMass: {x: 0, y: -0.2, z: 0}
+  preventFallCenterOfMass: {x: 0, y: -1.63, z: 0}
+  maxXrotationToPreventFall: 45
 --- !u!1 &1750770667
 GameObject:
   m_ObjectHideFlags: 0
@@ -36020,7 +36108,7 @@ PrefabInstance:
       objectReference: {fileID: 1938862188}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: rayNumber
@@ -36115,7 +36203,17 @@ PrefabInstance:
     - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515347895, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -36201,6 +36299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259518432589, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259521545865, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -37008,7 +37111,7 @@ PrefabInstance:
       objectReference: {fileID: 1938862188}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1824578128, guid: e2ace7e47b1bdf64e8164df9c3047935, type: 3}
       propertyPath: rayNumber
@@ -37038,7 +37141,17 @@ PrefabInstance:
     - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259515347888, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259515347895, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -37119,6 +37232,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312457259518432589, guid: e2ace7e47b1bdf64e8164df9c3047935,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 3312457259521545865, guid: e2ace7e47b1bdf64e8164df9c3047935,
         type: 3}
@@ -43045,7 +43163,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524456, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -43082,6 +43200,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524457, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: FullTorqueOverAllWheels
@@ -43090,7 +43213,17 @@ PrefabInstance:
     - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809614700398524459, guid: 5aa21f57b5d12c84794c4a413fa73cce,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -43130,7 +43263,7 @@ PrefabInstance:
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1809614700398524462, guid: 5aa21f57b5d12c84794c4a413fa73cce,
         type: 3}
@@ -43313,7 +43446,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296724, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -43353,12 +43486,22 @@ PrefabInstance:
     - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: BrakeTorque
-      value: 11.18
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: SteerHelper
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: TractionControl
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296726, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: MaximumSteerAngle
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -43369,6 +43512,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118174905381296727, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
@@ -43393,7 +43541,7 @@ PrefabInstance:
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}
       propertyPath: maxTopSpeed
-      value: 85.42
+      value: 50.97
       objectReference: {fileID: 0}
     - target: {fileID: 7118174905381296729, guid: 7524d07406fe4e844a7b65bbcbe13d8f,
         type: 3}

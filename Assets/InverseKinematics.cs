@@ -23,7 +23,6 @@ public class InverseKinematics : MonoBehaviour
     {
         if(lowerHead!= cms.GetSpeed(0) > speedToLowerHead)
         {
-            Debug.Log("Cyk akcja");
             StopAllCoroutines();
             StartCoroutine(LowerHead());
         }
@@ -37,7 +36,6 @@ public class InverseKinematics : MonoBehaviour
         desireHeadPosition = !lowerHead ? headLowPosition : headHighPosition;
         while(Mathf.Abs(headPosition.localPosition.x-desireHeadPosition)>epsilon)
         {
-            Debug.Log("dzieje sie");
             headPosition.localPosition = new Vector3(Mathf.Lerp(headPosition.localPosition.x,desireHeadPosition,Time.deltaTime*speedOfChangingHeadHeight), headPosition.localPosition.y, headPosition.localPosition.z);
             yield return null;
         }

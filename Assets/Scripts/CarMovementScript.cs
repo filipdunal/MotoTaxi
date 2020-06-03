@@ -93,6 +93,13 @@ public class CarMovementScript : MonoBehaviour
     public GameObject tailLight;
     public GameObject brakeLight;
 
+
+
+    [Header("Center of mass")]
+    public Vector3 centerOfMass=new Vector3(0f, -0.2f, 0f);
+    public Vector3 preventFallCenterOfMass= new Vector3(0f, -0.2f, 0f);
+    public float maxXrotationToPreventFall = 45f;
+
     private void Awake()
     {
         //wholeMesh.parent = null; // Detach of mesh
@@ -105,7 +112,7 @@ public class CarMovementScript : MonoBehaviour
         meshRotationOffset = transform.rotation * Quaternion.Inverse(wholeMesh.rotation);
 
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0f, -0.2f, 0f);
+        rb.centerOfMass = centerOfMass;
         actualGear = gears[0];
         //StartCoroutine(ResetRotationZ());
     }
@@ -358,6 +365,16 @@ public class CarMovementScript : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Rotate(0f, 0f, -transform.localEulerAngles.z);
+        
+        //Preventing falling in X rotation axis
+        if(Mathf.Abs(transform.rotation.eulerAngles.x) >maxXrotationToPreventFall && Mathf.Abs(transform.rotation.eulerAngles.x) < 300f)
+        {
+            rb.centerOfMass = preventFallCenterOfMass;
+        }
+        else
+        {
+            rb.centerOfMass = centerOfMass;
+        }
     }
     IEnumerator ResetRotationZ()
     {
