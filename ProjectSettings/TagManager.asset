@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AutonomousVehicle
   - Waypoint
+  - Motorcycle
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - PostProcessing
   - AutonomousVehicle
   - UnityEditor
-  - 
-  - 
+  - Roads
+  - Map
   - 
   - 
   - 
