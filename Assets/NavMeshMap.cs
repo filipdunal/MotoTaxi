@@ -8,11 +8,7 @@ public class NavMeshMap : MonoBehaviour
     NavMeshTriangulation triangles;
     Mesh mesh;
     MeshFilter navMeshMap;
-
-    private void Awake()
-    {
-        RenderMap();
-    }
+    
     public void RenderMap()
     {
         navMeshMap = GetComponent<MeshFilter>();

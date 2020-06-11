@@ -25,6 +25,7 @@ namespace TrafficSimulation {
 
         public bool hasToStop = false;
         public bool hasToGo = false;
+        public bool drawRoute;
 
         VehiclePhysics carController;
         NavMeshAgent agent;
@@ -33,7 +34,33 @@ namespace TrafficSimulation {
         public int curSeg = 0;
         float initialTopSpeed;
 
+        private void OnDrawGizmos()
+        {
+            if(drawRoute)
+            {
+                if (agent == null || agent.path == null)
+                    return;
 
+                var line = this.GetComponent<LineRenderer>();
+                if (line == null)
+                {
+                    line = this.gameObject.AddComponent<LineRenderer>();
+                    line.material = new Material(Shader.Find("Sprites/Default")) { color = Color.yellow };
+                    line.SetWidth(0.5f, 0.5f);
+                    line.SetColors(Color.yellow, Color.yellow);
+                }
+
+                var path = agent.path;
+
+                line.SetVertexCount(path.corners.Length);
+
+                for (int i = 0; i < path.corners.Length; i++)
+                {
+                    line.SetPosition(i, path.corners[i]);
+                }
+            }
+            
+        }
         void Start()
         {
             carController = this.GetComponent<VehiclePhysics>();
@@ -47,8 +74,8 @@ namespace TrafficSimulation {
             aiGo.transform.SetParent(this.transform, false);
             agent = aiGo.AddComponent<NavMeshAgent>();
             agent.radius = 0.7f;
-            agent.height = 1;
-            agent.speed = 1;
+            agent.height = 1f;
+            agent.speed = 1f;
 
             if(trafficSystem == null)
                 return;
@@ -93,6 +120,7 @@ namespace TrafficSimulation {
 
             //Set agent destination depending on waypoint
             agent.SetDestination(waypoint.transform.position);
+            Debug.Log(waypoint.transform.parent.name+"  "+waypoint.name);
 
             //Go to next waypoint if arrived to current
             if(nextWp.magnitude < waypointThresh){

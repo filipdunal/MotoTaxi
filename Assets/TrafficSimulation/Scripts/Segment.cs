@@ -17,7 +17,8 @@ namespace TrafficSimulation{
         public List<Waypoint> waypoints;
 
         public bool IsOnSegment(Vector3 p){
-            TrafficSystem ts = GetComponentInParent<TrafficSystem>();
+            //TrafficSystem ts = GetComponentInParent<TrafficSystem>();
+            TrafficSystem ts = transform.parent.parent.GetComponent<TrafficSystem>();
 
             for(int i=0; i < waypoints.Count - 1; i++){
                 float d1 = Vector3.Distance(waypoints[i].transform.position, p);

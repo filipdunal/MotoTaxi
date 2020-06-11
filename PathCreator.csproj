@@ -73,11 +73,11 @@
     <Compile Include="Assets\PathCreator\Core\Runtime\Utility\CubicBezierUtility.cs" />
     <Compile Include="Assets\PathCreator\Core\Runtime\Utility\MathUtility.cs" />
     <Compile Include="Assets\PathCreator\Core\Runtime\Utility\VertexPathUtility.cs" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Filip/Documents/GitHub/ZabawaLubCosWiecej/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/Filip/Documents/GitHub/ZabawaLubCosWiecej/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/Filip/Documents/GitHub/ZabawaLubCosWiecej/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
