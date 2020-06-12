@@ -120,7 +120,7 @@ namespace TrafficSimulation {
 
             //Set agent destination depending on waypoint
             agent.SetDestination(waypoint.transform.position);
-            Debug.Log(waypoint.transform.parent.name+"  "+waypoint.name);
+            //Debug.Log(waypoint.transform.parent.name+"  "+waypoint.name);
 
             //Go to next waypoint if arrived to current
             if(nextWp.magnitude < waypointThresh){

@@ -20,7 +20,6 @@ namespace DitzelGames.FastIK
         /// </summary>
         public Transform Target;
         public Transform Pole;
-
         /// <summary>
         /// Solver iterations per update
         /// </summary>
@@ -47,8 +46,7 @@ namespace DitzelGames.FastIK
         protected Quaternion[] StartRotationBone;
         protected Quaternion StartRotationTarget;
         protected Transform Root;
-
-
+        
         // Start is called before the first frame update
         void Awake()
         {
