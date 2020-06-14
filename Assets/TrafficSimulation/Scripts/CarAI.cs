@@ -146,12 +146,20 @@ namespace TrafficSimulation {
             
             //Check if we are going to collide with a car in front
             CarAI otherCarAI = null;
+            CarMovementScript cms = null;
             float topSpeed = initialTopSpeed;
             float initRay = (raysNumber / 2f) * raySpacing;
 
             for(float a=-initRay; a<=initRay; a+=raySpacing){
                 float hitDist;
-                CastRay(anchor, a, this.transform.forward, raycastLength, out otherCarAI, out hitDist);
+                CastRay(anchor, a, this.transform.forward, raycastLength, out otherCarAI, out hitDist, out cms);
+
+                if(cms!=null)
+                {
+                    //Debug.Log("Widze motocykl");
+                    topSpeed = 0f;
+                    return topSpeed;
+                }
 
                 //If rays collide with a car, adapt the top speed to be the same as the one of the front vehicle
                 if(otherCarAI != null && otherCarAI.carController != null && carController.Topspeed > otherCarAI.carController.Topspeed){
@@ -189,8 +197,9 @@ namespace TrafficSimulation {
         }
 
         
-        void CastRay(Vector3 anchor, float angle, Vector3 dir, float length, out CarAI outCarAI, out float outHitDistance){
+        void CastRay(Vector3 anchor, float angle, Vector3 dir, float length, out CarAI outCarAI, out float outHitDistance,out CarMovementScript cms){
 
+            cms = null;
             outCarAI = null;
             outHitDistance = -1f;
 
@@ -198,9 +207,10 @@ namespace TrafficSimulation {
             Debug.DrawRay(anchor, Quaternion.Euler(0, angle, 0) * dir * length, new Color(1, 0, 0, 0.5f));
 
             //Detect hit only on the autonomous vehicle layer
-            int layer = 1 << LayerMask.NameToLayer("AutonomousVehicle");
+            int layer = 1 << LayerMask.NameToLayer("Vehicle");
             RaycastHit hit;
             if(Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layer)){
+                cms = hit.collider.GetComponentInParent<CarMovementScript>();
                 outCarAI = hit.collider.GetComponentInParent<CarAI>();
                 outHitDistance = hit.distance;
             }
@@ -217,6 +227,19 @@ namespace TrafficSimulation {
             Vector3 diff = this.transform.forward - otherCar.transform.forward;
             if(Mathf.Abs(diff.x) < 0.3f && Mathf.Abs(diff.z) < 0.3f) return true;
             else return false;
+        }
+
+        public IEnumerator StopForTime(float duration)
+        {
+            hasToStop = true;
+            yield return new WaitForSeconds(duration);
+            hasToStop = false;
+
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            StartCoroutine(StopForTime(5f));
         }
     }
 }

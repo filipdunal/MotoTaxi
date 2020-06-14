@@ -24,6 +24,6 @@ public class MotoCollision : MonoBehaviour
 
     void Crash()
     {
-        Debug.Log("OJ JAK BOLI ZA MOCNO!");
+        //Debug.Log("OJ JAK BOLI ZA MOCNO!");
     }
 }

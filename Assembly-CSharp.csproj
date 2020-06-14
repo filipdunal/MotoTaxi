@@ -78,7 +78,6 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
-    <Compile Include="Assets\Road.cs" />
     <Compile Include="Assets\RoadLinesFolder.cs" />
     <Compile Include="Assets\Scripts\CameraRotator.cs" />
     <Compile Include="Assets\Scripts\CarMovementScript.cs" />
@@ -93,7 +92,9 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\NavMeshMap.cs" />
     <Compile Include="Assets\Scripts\NavMeshMapEditor.cs" />
+    <Compile Include="Assets\Scripts\Road.cs" />
     <Compile Include="Assets\Scripts\RoadEditor.cs" />
+    <Compile Include="Assets\Scripts\RoadType.cs" />
     <Compile Include="Assets\Scripts\TireEffects.cs" />
     <Compile Include="Assets\Scripts\ViewSkeleton.cs" />
     <Compile Include="Assets\TrafficSimulation\Examples\Scripts\RedLightStatus.cs" />

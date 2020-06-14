@@ -5,6 +5,7 @@
 
  */
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -142,7 +143,7 @@ namespace TrafficSimulation
             ApplySteerHelper();
 
             ApplyDrive(acceleration, brake);
-
+            
             CapSpeed();
 
             ApplyDownforce();
@@ -266,15 +267,55 @@ namespace TrafficSimulation
         }
 
         //--------------------------------------------------------------------------------------------------------------
-
+        float speed;
+        bool brakeLightsTurned;
         private void CapSpeed()
         {
-            float speed = body.velocity.magnitude;
+            BrakeLights(body.velocity.magnitude * 3.6f < speed-2f);
+
+            speed = body.velocity.magnitude;
 
             speed *= 3.6f;
             if (speed > Topspeed)
                 body.velocity = (Topspeed / 3.6f) * body.velocity.normalized;
 
+        }
+
+        public List<GameObject> brakeLights;
+        bool braking;
+        bool coroutineRunning;
+        void BrakeLights(bool condition)
+        {
+            if (coroutineRunning)
+                return;
+            //Debug.Log(condition);
+            if(brakeLightsTurned!=condition)
+            {
+                brakeLightsTurned = condition;
+                if(condition)
+                {
+                    foreach (GameObject bl in brakeLights)
+                    {
+                        bl.SetActive(true);
+                    }
+                }
+                else
+                {
+                    StartCoroutine(HoldBrakeLights(1f));
+                }
+                
+            }
+        }
+
+        IEnumerator HoldBrakeLights(float duration)
+        {
+            coroutineRunning = true;
+            yield return new WaitForSeconds(duration);
+            foreach (GameObject bl in brakeLights)
+            {
+                bl.SetActive(false);
+            }
+            coroutineRunning = false;
         }
     }
 }
