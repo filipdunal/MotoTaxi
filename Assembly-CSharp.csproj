@@ -68,6 +68,7 @@
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleProcedualAnimation.cs" />
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleRotator.cs" />
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleSinMover.cs" />
+    <Compile Include="Assets\FitInCamera.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />

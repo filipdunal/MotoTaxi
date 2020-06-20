@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - DisolveScript
     - DitzelGames.FastIK.DelayFastIK
     - DitzelGames.FastIK.FastIKFabric
+    - FitInCamera
     - HudController
     - InverseKinematics
     - MapCamera
@@ -260,71 +261,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 14898}
+      Script: {instanceID: 14900}
     - Class: 114
-      Script: {instanceID: 15032}
+      Script: {instanceID: 15034}
     - Class: 114
-      Script: {instanceID: 15076}
+      Script: {instanceID: 15078}
     - Class: 114
-      Script: {instanceID: 15118}
+      Script: {instanceID: 15120}
     - Class: 114
-      Script: {instanceID: 15126}
+      Script: {instanceID: 15128}
     - Class: 114
-      Script: {instanceID: 15162}
+      Script: {instanceID: 15164}
     - Class: 114
-      Script: {instanceID: 15350}
+      Script: {instanceID: 15352}
     - Class: 114
-      Script: {instanceID: 15378}
+      Script: {instanceID: 15380}
     - Class: 114
-      Script: {instanceID: 15468}
+      Script: {instanceID: 15470}
     - Class: 114
-      Script: {instanceID: 15574}
+      Script: {instanceID: 15576}
     - Class: 114
-      Script: {instanceID: 15594}
+      Script: {instanceID: 15596}
     - Class: 114
-      Script: {instanceID: 15672}
+      Script: {instanceID: 15674}
     - Class: 114
-      Script: {instanceID: 15760}
+      Script: {instanceID: 15762}
     - Class: 114
-      Script: {instanceID: 15818}
+      Script: {instanceID: 15820}
     - Class: 114
-      Script: {instanceID: 16010}
+      Script: {instanceID: 16012}
     - Class: 114
-      Script: {instanceID: 16168}
+      Script: {instanceID: 16170}
     - Class: 114
-      Script: {instanceID: 16248}
+      Script: {instanceID: 16250}
     - Class: 114
-      Script: {instanceID: 16312}
+      Script: {instanceID: 16314}
     - Class: 114
-      Script: {instanceID: 16344}
+      Script: {instanceID: 16346}
     - Class: 114
-      Script: {instanceID: 16392}
+      Script: {instanceID: 16394}
     - Class: 114
-      Script: {instanceID: 16532}
+      Script: {instanceID: 16534}
     - Class: 114
-      Script: {instanceID: 16572}
+      Script: {instanceID: 16574}
     - Class: 114
-      Script: {instanceID: 16598}
+      Script: {instanceID: 16600}
     - Class: 114
-      Script: {instanceID: 16602}
+      Script: {instanceID: 16604}
     - Class: 114
-      Script: {instanceID: 16612}
+      Script: {instanceID: 16614}
     - Class: 114
-      Script: {instanceID: 16642}
+      Script: {instanceID: 16644}
     - Class: 114
-      Script: {instanceID: 16682}
+      Script: {instanceID: 16684}
     - Class: 114
-      Script: {instanceID: 16686}
+      Script: {instanceID: 16688}
     - Class: 114
-      Script: {instanceID: 16822}
-    - Class: 114
-      Script: {instanceID: 16826}
+      Script: {instanceID: 16824}
     - Class: 114
       Script: {instanceID: 16828}
     - Class: 114
-      Script: {instanceID: 16840}
+      Script: {instanceID: 16830}
     - Class: 114
-      Script: {instanceID: 16848}
+      Script: {instanceID: 16842}
+    - Class: 114
+      Script: {instanceID: 16850}
+    - Class: 114
+      Script: {instanceID: 63756}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1940,6 +1943,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 595fc821813609ee9adb925e9199cac7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FitInCamera
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
