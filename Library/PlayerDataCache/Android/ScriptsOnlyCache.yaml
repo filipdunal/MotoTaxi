@@ -299,35 +299,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16346}
     - Class: 114
-      Script: {instanceID: 16394}
+      Script: {instanceID: 16390}
     - Class: 114
-      Script: {instanceID: 16534}
+      Script: {instanceID: 16396}
     - Class: 114
-      Script: {instanceID: 16574}
+      Script: {instanceID: 16536}
     - Class: 114
-      Script: {instanceID: 16600}
+      Script: {instanceID: 16576}
     - Class: 114
-      Script: {instanceID: 16604}
+      Script: {instanceID: 16602}
     - Class: 114
-      Script: {instanceID: 16614}
+      Script: {instanceID: 16606}
     - Class: 114
-      Script: {instanceID: 16644}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 16684}
+      Script: {instanceID: 16646}
     - Class: 114
-      Script: {instanceID: 16688}
+      Script: {instanceID: 16686}
     - Class: 114
-      Script: {instanceID: 16824}
+      Script: {instanceID: 16690}
     - Class: 114
-      Script: {instanceID: 16828}
+      Script: {instanceID: 16826}
     - Class: 114
       Script: {instanceID: 16830}
     - Class: 114
-      Script: {instanceID: 16842}
+      Script: {instanceID: 16832}
     - Class: 114
-      Script: {instanceID: 16850}
+      Script: {instanceID: 16844}
     - Class: 114
-      Script: {instanceID: 63756}
+      Script: {instanceID: 16852}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1741,6 +1741,12 @@ ScriptsOnlyBuild:
     className: SceneRenderPipeline
   - hash:
       serializedVersion: 2
+      Hash: 47edbaa5ae588ce06b94e4d844767657
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FitInCamera
+  - hash:
+      serializedVersion: 2
       Hash: 2fb7aadda89768e57fd67b064743cd82
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1943,12 +1949,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 595fc821813609ee9adb925e9199cac7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FitInCamera
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
