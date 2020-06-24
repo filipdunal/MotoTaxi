@@ -51,6 +51,7 @@ public class FitInCamera : MonoBehaviour
 
     public void ClosePhone()
     {
+        openedPhone = false;
         hidePhoneButton.SetActive(false);
         graphicRaycaster.enabled = false;
 
@@ -72,7 +73,7 @@ public class FitInCamera : MonoBehaviour
         while (Vector3.Distance(transform.localScale, scale)>0.001f)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, position, phoneAnimationSpeed * Time.unscaledDeltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, phoneAnimationSpeed * Time.unscaledDeltaTime);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, rotation, phoneAnimationSpeed * Time.unscaledDeltaTime);
             transform.localScale = Vector3.Lerp(transform.localScale, scale, phoneAnimationSpeed * Time.unscaledDeltaTime);
             yield return 0;
         }

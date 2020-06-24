@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
 public class MapCamera : MonoBehaviour
 {
-    private void Awake()
+    Transform player;
+    Transform playerIcon;
+    Vector3 cameraOffset=new Vector3(0f,5f,0f);
+
+    private void Start()
     {
-        GetComponent<Camera>().ResetAspect();
+        player = GameObject.FindGameObjectWithTag("Motorcycle").transform;
+        playerIcon = player.transform.Find("PlayerIcon");
+    }
+    private void Update()
+    {
+        transform.position = player.position + cameraOffset;
+        transform.rotation = Quaternion.Euler(90f, player.rotation.eulerAngles.y, 0f);
     }
 }

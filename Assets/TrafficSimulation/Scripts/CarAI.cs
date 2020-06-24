@@ -239,7 +239,11 @@ namespace TrafficSimulation {
 
         private void OnCollisionStay(Collision collision)
         {
-            StartCoroutine(StopForTime(5f));
+            if(collision.collider.tag=="Motorcycle")
+            {
+                StartCoroutine(StopForTime(5f));
+            }
+            
         }
     }
 }

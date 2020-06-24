@@ -79,6 +79,7 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
+    <Compile Include="Assets\PhoneHUD.cs" />
     <Compile Include="Assets\RoadLinesFolder.cs" />
     <Compile Include="Assets\Scripts\CameraRotator.cs" />
     <Compile Include="Assets\Scripts\CarMovementScript.cs" />
@@ -108,6 +109,7 @@
     <None Include="Assets\FastIK\Documentation.txt" />
     <None Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Shaders\Minimalist Free Sky.shader" />
     <None Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Shaders\Minimalist Free Standard LWRP.shader" />
+    <None Include="Assets\BloomUI.shader" />
     <None Include="Assets\TrafficSimulation\Examples\Addons\Minimalist Free v2.3\Shaders\Minimalist Free Standard.shader" />
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>C:/Users/Filip/Documents/GitHub/ZabawaLubCosWiecej/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
