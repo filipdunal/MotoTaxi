@@ -1,18 +1,16 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - CameraRotator
     - CarMovementScript
-    - DisolveScript
     - DitzelGames.FastIK.DelayFastIK
     - DitzelGames.FastIK.FastIKFabric
-    - FitInCamera
     - HudController
     - InverseKinematics
     - MapCamera
     - MotoCollision
-    - Movement
     - NavMeshMap
+    - PhoneCamera
+    - PhoneHUD
     - RedLightStatus
     - Road
     - RoadLinesFolder
@@ -154,6 +152,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -163,176 +163,170 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11452}
     - Class: 114
-      Script: {instanceID: 11502}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11538}
+      Script: {instanceID: 11540}
     - Class: 114
-      Script: {instanceID: 11628}
+      Script: {instanceID: 11630}
     - Class: 114
-      Script: {instanceID: 11670}
+      Script: {instanceID: 11672}
     - Class: 114
-      Script: {instanceID: 11784}
+      Script: {instanceID: 11786}
     - Class: 114
-      Script: {instanceID: 11822}
+      Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 11952}
-    - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11954}
     - Class: 114
       Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 11968}
+      Script: {instanceID: 11964}
     - Class: 114
-      Script: {instanceID: 12068}
+      Script: {instanceID: 11970}
     - Class: 114
-      Script: {instanceID: 12126}
+      Script: {instanceID: 12070}
     - Class: 114
-      Script: {instanceID: 12334}
+      Script: {instanceID: 12112}
+    - Class: 114
+      Script: {instanceID: 12130}
     - Class: 114
       Script: {instanceID: 12338}
     - Class: 114
-      Script: {instanceID: 12382}
+      Script: {instanceID: 12342}
     - Class: 114
-      Script: {instanceID: 12418}
+      Script: {instanceID: 12386}
     - Class: 114
-      Script: {instanceID: 12482}
+      Script: {instanceID: 12422}
     - Class: 114
-      Script: {instanceID: 12500}
+      Script: {instanceID: 12486}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12620}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 12808}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 12960}
+      Script: {instanceID: 12964}
     - Class: 114
-      Script: {instanceID: 13126}
+      Script: {instanceID: 13130}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 13290}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 13592}
     - Class: 114
-      Script: {instanceID: 13588}
+      Script: {instanceID: 13654}
     - Class: 114
-      Script: {instanceID: 13650}
+      Script: {instanceID: 13728}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13738}
     - Class: 114
-      Script: {instanceID: 13734}
+      Script: {instanceID: 13746}
     - Class: 114
-      Script: {instanceID: 13742}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 13788}
+      Script: {instanceID: 13848}
     - Class: 114
-      Script: {instanceID: 13844}
+      Script: {instanceID: 13902}
     - Class: 114
-      Script: {instanceID: 13898}
+      Script: {instanceID: 13916}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 14086}
     - Class: 114
-      Script: {instanceID: 14082}
+      Script: {instanceID: 14274}
     - Class: 114
-      Script: {instanceID: 14270}
+      Script: {instanceID: 14308}
     - Class: 114
-      Script: {instanceID: 14304}
+      Script: {instanceID: 14340}
     - Class: 114
-      Script: {instanceID: 14336}
+      Script: {instanceID: 14524}
     - Class: 114
-      Script: {instanceID: 14504}
+      Script: {instanceID: 14556}
     - Class: 114
-      Script: {instanceID: 14520}
+      Script: {instanceID: 14588}
     - Class: 114
-      Script: {instanceID: 14552}
+      Script: {instanceID: 14718}
     - Class: 114
-      Script: {instanceID: 14584}
+      Script: {instanceID: 14778}
     - Class: 114
-      Script: {instanceID: 14714}
+      Script: {instanceID: 14874}
     - Class: 114
-      Script: {instanceID: 14774}
+      Script: {instanceID: 14904}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 15038}
     - Class: 114
-      Script: {instanceID: 14900}
+      Script: {instanceID: 15082}
     - Class: 114
-      Script: {instanceID: 15034}
+      Script: {instanceID: 15124}
     - Class: 114
-      Script: {instanceID: 15078}
+      Script: {instanceID: 15132}
     - Class: 114
-      Script: {instanceID: 15120}
+      Script: {instanceID: 15168}
     - Class: 114
-      Script: {instanceID: 15128}
+      Script: {instanceID: 15356}
     - Class: 114
-      Script: {instanceID: 15164}
+      Script: {instanceID: 15384}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15474}
     - Class: 114
-      Script: {instanceID: 15380}
+      Script: {instanceID: 15580}
     - Class: 114
-      Script: {instanceID: 15470}
+      Script: {instanceID: 15600}
     - Class: 114
-      Script: {instanceID: 15576}
+      Script: {instanceID: 15678}
     - Class: 114
-      Script: {instanceID: 15596}
+      Script: {instanceID: 15766}
     - Class: 114
-      Script: {instanceID: 15674}
+      Script: {instanceID: 15824}
     - Class: 114
-      Script: {instanceID: 15762}
+      Script: {instanceID: 16016}
     - Class: 114
-      Script: {instanceID: 15820}
+      Script: {instanceID: 16174}
     - Class: 114
-      Script: {instanceID: 16012}
+      Script: {instanceID: 16254}
     - Class: 114
-      Script: {instanceID: 16170}
+      Script: {instanceID: 16318}
     - Class: 114
-      Script: {instanceID: 16250}
+      Script: {instanceID: 16350}
     - Class: 114
-      Script: {instanceID: 16314}
+      Script: {instanceID: 16394}
     - Class: 114
-      Script: {instanceID: 16346}
+      Script: {instanceID: 16400}
     - Class: 114
-      Script: {instanceID: 16390}
+      Script: {instanceID: 16540}
     - Class: 114
-      Script: {instanceID: 16396}
-    - Class: 114
-      Script: {instanceID: 16536}
-    - Class: 114
-      Script: {instanceID: 16576}
-    - Class: 114
-      Script: {instanceID: 16602}
+      Script: {instanceID: 16580}
     - Class: 114
       Script: {instanceID: 16606}
     - Class: 114
-      Script: {instanceID: 16616}
+      Script: {instanceID: 16610}
     - Class: 114
-      Script: {instanceID: 16646}
+      Script: {instanceID: 16620}
     - Class: 114
-      Script: {instanceID: 16686}
+      Script: {instanceID: 16650}
     - Class: 114
       Script: {instanceID: 16690}
     - Class: 114
-      Script: {instanceID: 16826}
+      Script: {instanceID: 16694}
     - Class: 114
       Script: {instanceID: 16830}
     - Class: 114
-      Script: {instanceID: 16832}
+      Script: {instanceID: 16834}
     - Class: 114
-      Script: {instanceID: 16844}
+      Script: {instanceID: 16836}
     - Class: 114
-      Script: {instanceID: 16852}
+      Script: {instanceID: 16848}
+    - Class: 114
+      Script: {instanceID: 16856}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -611,6 +605,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 8611a4d56c97fb133ac95334a4ee04a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PhoneHUD
   - hash:
       serializedVersion: 2
       Hash: f542c1afca5bb4022f91fdda19b8d622
@@ -1603,7 +1603,7 @@ ScriptsOnlyBuild:
     className: CinemachineUniversalPixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ff69d99d56b398a3107c4b0d59a85f36
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapCamera
@@ -1744,7 +1744,7 @@ ScriptsOnlyBuild:
       Hash: 47edbaa5ae588ce06b94e4d844767657
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: FitInCamera
+    className: PhoneCamera
   - hash:
       serializedVersion: 2
       Hash: 2fb7aadda89768e57fd67b064743cd82
