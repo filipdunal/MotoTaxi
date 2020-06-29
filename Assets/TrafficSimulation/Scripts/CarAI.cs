@@ -52,7 +52,7 @@ namespace TrafficSimulation {
 
                 var path = agent.path;
 
-                line.SetVertexCount(path.corners.Length);
+                line.positionCount = path.corners.Length;
 
                 for (int i = 0; i < path.corners.Length; i++)
                 {
